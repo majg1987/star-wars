@@ -12,13 +12,15 @@ const Card = () => {
         />
         <div className="card-body">
           <h5 className="card-title">Card title</h5>
-          <p className="card-text">
-            Some quick example text to build on the card title and make up the
-            bulk of the card's content.
-          </p>
-          <Link to={"/demo"} className="btn btn-primary">
-            Go somewhere
-          </Link>
+          <p className="card-text">Gender:</p>
+          <p className="card-text">Hair Color:</p>
+          <p className="card-text">Eye Color:</p>
+          <div className="d-flex justify-content-between">
+            <Link to={"/demo"} className="btn btn-outline border-primary text-primary">
+              Learn More!
+            </Link>
+            <button className="btn btn-outline border-warning text-warning" ><i class="far fa-heart"></i></button>
+          </div>
         </div>
       </div>
     </>
