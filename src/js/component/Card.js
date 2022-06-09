@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Card = () => {
   return (
     <>
-      <div className="card" style={{ minWidth: "18rem" }}>
+      <div className="card me-5" style={{ minWidth: "18rem" }}>
         <img
           src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTycN1y9R0MhB1LuhER8D7RFJVPUtf5jVW3KxdTGnanBhBysAs9ObtpaiZ5RYCmBDfdvok&usqp=CAU"
           className="card-img-top"
