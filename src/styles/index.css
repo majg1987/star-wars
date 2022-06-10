@@ -1,3 +1,7 @@
 .titulo {
     height: 50px;
 }
+
+.card {
+    min-width: 18rem;
+}

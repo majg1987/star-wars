@@ -13,7 +13,7 @@ export const Navbar = () => {
             />
           </Link>
 
-          <div class="dropdown">
+          <div className="dropdown">
             <button
               className="btn btn-primary dropdown-toggle"
               type="button"
@@ -21,9 +21,9 @@ export const Navbar = () => {
               data-bs-toggle="dropdown"
               aria-expanded="false"
             >
-              Favourites
+              Favourites <span className="bg-danger mx-2 px-2 rounded" >0</span>
             </button>
-            <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+            <ul className="dropdown-menu text-center text-primary" aria-labelledby="dropdownMenuButton1">
               <li>Action</li>
               <li>Another action</li>
               <li>Something else here</li>
