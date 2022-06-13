@@ -1,6 +1,13 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
+import { useParams } from "react-router";
+import { Context } from "../store/appContext";
 
-const Detalles = () => {
+const DetallesCharacter = () => {
+  const { store, actions } = useContext(Context);
+  const  {theid}  = useParams();
+  console.log(store.personajes);
+  console.log(useParams());
+
   return (
     <div className="row">
       <div className="col-12 col-lg-6 text-center">
@@ -11,7 +18,7 @@ const Detalles = () => {
         />
       </div>
       <div className="col-12 col-lg-6 text-center">
-        <h1> Nombre Personaje </h1>
+        <h1></h1>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit.Nemo, placeat
           ut ipsam beatae voluptatibus in non rerum excepturi nulla tenetur
@@ -53,4 +60,4 @@ const Detalles = () => {
   );
 };
 
-export default Detalles;
+export default DetallesCharacter;

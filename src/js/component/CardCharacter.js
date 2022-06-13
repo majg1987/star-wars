@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const CardCharacter = ({name, gender, hairColor,eyeColor}) => {
+const CardCharacter = ({name, gender, hairColor, eyeColor, id}) => {
 
   return (
     <>
@@ -18,7 +18,7 @@ const CardCharacter = ({name, gender, hairColor,eyeColor}) => {
           <p className="card-text"> Eye Color: {eyeColor} </p>
           <div className="d-flex justify-content-between">
             <Link
-              to={"/Character"}
+              to={"/character/"+id}
               className="btn btn-outline border-primary text-primary"
             >
               Learn More!
