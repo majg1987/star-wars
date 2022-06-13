@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 
-const CardCharacter = () => {
+const CardCharacter = ({name, gender, hairColor,eyeColor}) => {
+
   return (
     <>
       <div className="card me-5">
@@ -10,25 +11,25 @@ const CardCharacter = () => {
           className="card-img-top"
           alt="..."
         />
-        <div className="card-body">
-          <h5 className="card-title"> Card title </h5>{" "}
-          <p className="card-text"> Gender: </p>{" "}
-          <p className="card-text"> Hair Color: </p>{" "}
-          <p className="card-text"> Eye Color: </p>{" "}
+        <div className="card-body" >
+          <h5 className="card-title"> {name} </h5>
+          <p className="card-text"> Gender: {gender} </p>
+          <p className="card-text"> Hair Color: {hairColor} </p>
+          <p className="card-text"> Eye Color: {eyeColor} </p>
           <div className="d-flex justify-content-between">
             <Link
               to={"/Character"}
               className="btn btn-outline border-primary text-primary"
             >
               Learn More!
-            </Link>{" "}
+            </Link>
             <button className="btn btn-outline border-warning text-warning">
-              {" "}
+              
               <i className="far fa-heart"> </i>
             </button>
-          </div>{" "}
-        </div>{" "}
-      </div>{" "}
+          </div>
+        </div>
+      </div>
     </>
   );
 };
