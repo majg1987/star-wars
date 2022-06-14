@@ -1,6 +1,12 @@
-import React from "react";
+import React,{useContext} from "react";
+import { Context } from "../store/appContext";
+import { useParams } from "react-router-dom";
 
 const DetallesVehicles = () => {
+
+  const{store}=useContext(Context);
+  const {theid} = useParams();
+
   return (
     <div className="row">
       <div className="col-12 col-lg-6 text-center">
@@ -11,7 +17,7 @@ const DetallesVehicles = () => {
         />
       </div>
       <div className="col-12 col-lg-6 text-center">
-        <h1> Detalles Vehicle </h1>
+        <h1> {store.vehiculos[theid]?.name} </h1>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit.Nemo, placeat
           ut ipsam beatae voluptatibus in non rerum excepturi nulla tenetur
@@ -28,25 +34,28 @@ const DetallesVehicles = () => {
       <div className="lineaSeparadora bg-danger mt-4 mb-4"> </div>
       <div className="row text-center  text-danger fw-bolder">
         <div className="col-2 r">
-          <p className="fw-bolder"> Name </p>
+          <p className="fw-bolder"> Nombre </p>
+          <p className="fw-bolder"> {store.vehiculos[theid]?.name} </p>
         </div>
         <div className="col-2">
-          <p className="mb-0 fw-bolder"> Birth </p>
-          <p className="fw-bolder"> Year </p>
+          <p className="fw-bolder"> Modelo</p>
+          <p className="fw-bolder"> {store.vehiculos[theid]?.model} </p>
         </div>
         <div className="col-2">
-          <p className="fw-bolder"> Gender </p>
+          <p className="fw-bolder"> Tipo de Vehiculo </p>
+          <p className="fw-bolder"> {store.vehiculos[theid]?.vehicle_class} </p>
         </div>
         <div className="col-2">
-          <p className="fw-bolder"> Heigth </p>
+          <p className="fw-bolder"> Pasajeros </p>
+          <p className="fw-bolder"> {store.vehiculos[theid]?.passengers} </p>
         </div>
         <div className="col-2">
-          <p className="mb-0 fw-bolder"> Skin </p>
-          <p className="fw-bolder"> Color </p>
+          <p className="fw-bolder"> Max. Velocidad </p>
+          <p className="fw-bolder"> {store.vehiculos[theid]?.max_atmosphering_speed} </p>
         </div>
         <div className="col-2">
-          <p className="mb-0 fw-bolder"> Eye </p>
-          <p className="fw-bolder"> Color </p>
+          <p className="fw-bolder"> Consumibles </p>
+          <p className="fw-bolder"> {store.vehiculos[theid]?.consumables} </p>
         </div>
       </div>
     </div>

@@ -1,7 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useContext } from "react";
+import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
 
-const CardVehicles = ({name, modelo, claseVehiculo, pasajeros, id}) => {
+const CardVehicles = ({ name, modelo, claseVehiculo, pasajeros, id }) => {
+
+  const{actions} = useContext(Context);
+
   return (
     <>
       <div className="card me-5">
@@ -17,12 +21,15 @@ const CardVehicles = ({name, modelo, claseVehiculo, pasajeros, id}) => {
           <p className="card-text"> Pasajeros: {pasajeros} </p>
           <div className="d-flex justify-content-between">
             <Link
-              to={"/vehicle/"+id}
+              to={"/vehicle/" + id}
               className="btn btn-outline border-primary text-primary"
             >
               Learn More!
             </Link>
-            <button className="btn btn-outline border-warning text-warning">
+            <button
+              className="btn btn-outline border-warning text-warning"
+              onClick={() => actions.addFavourites(name)}
+            >
               <i className="far fa-heart"> </i>
             </button>
           </div>

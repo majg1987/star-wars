@@ -1,12 +1,11 @@
 import React, { useContext, useEffect } from "react";
-import { useParams } from "react-router";
+// import { useParams } from "react-router";
+import { useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
 
 const DetallesCharacter = () => {
   const { store, actions } = useContext(Context);
   const  {theid}  = useParams();
-  console.log(store.personajes);
-  console.log(useParams());
 
   return (
     <div className="row">
@@ -18,7 +17,7 @@ const DetallesCharacter = () => {
         />
       </div>
       <div className="col-12 col-lg-6 text-center">
-        <h1></h1>
+        <h1>{store.personajes[theid]?.name}</h1>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit.Nemo, placeat
           ut ipsam beatae voluptatibus in non rerum excepturi nulla tenetur
@@ -35,25 +34,28 @@ const DetallesCharacter = () => {
       <div className="lineaSeparadora bg-danger mt-4 mb-4"> </div>
       <div className="row text-center  text-danger fw-bolder">
         <div className="col-2 r">
-          <p className="fw-bolder"> Name </p>
+          <p className="fw-bolder"> Nombre </p>
+          <p className="fw-bolder"> {store.personajes[theid]?.name} </p>
         </div>
         <div className="col-2">
-          <p className="mb-0 fw-bolder"> Birth </p>
-          <p className="fw-bolder"> Year </p>
+          <p className=" fw-bolder"> Año Nacimiento</p>
+          <p className="fw-bolder"> {store.personajes[theid]?.birth_year} </p>
         </div>
         <div className="col-2">
-          <p className="fw-bolder"> Gender </p>
+          <p className="fw-bolder"> Genero </p>
+          <p className="fw-bolder"> {store.personajes[theid]?.gender} </p>
         </div>
         <div className="col-2">
-          <p className="fw-bolder"> Heigth </p>
+          <p className="fw-bolder"> Altura </p>
+          <p className="fw-bolder"> {store.personajes[theid]?.height} </p>
         </div>
         <div className="col-2">
-          <p className="mb-0 fw-bolder"> Skin </p>
-          <p className="fw-bolder"> Color </p>
+          <p className=" fw-bolder"> Color de Piel</p>
+          <p className="fw-bolder"> {store.personajes[theid]?.skin_color} </p>
         </div>
         <div className="col-2">
-          <p className="mb-0 fw-bolder"> Eye </p>
-          <p className="fw-bolder"> Color </p>
+          <p className=" fw-bolder"> Color de Ojos</p>
+          <p className="fw-bolder"> {store.personajes[theid]?.eye_color} </p>
         </div>
       </div>
     </div>

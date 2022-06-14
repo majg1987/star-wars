@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
+import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
 
-const CardCharacter = ({name, gender, hairColor, eyeColor, id}) => {
+const CardCharacter = ({ name, gender, hairColor, eyeColor, id }) => {
+  const { store, actions } = useContext(Context);
 
   return (
     <>
@@ -11,20 +13,22 @@ const CardCharacter = ({name, gender, hairColor, eyeColor, id}) => {
           className="card-img-top"
           alt="..."
         />
-        <div className="card-body" >
+        <div className="card-body">
           <h5 className="card-title"> {name} </h5>
-          <p className="card-text"> Gender: {gender} </p>
-          <p className="card-text"> Hair Color: {hairColor} </p>
-          <p className="card-text"> Eye Color: {eyeColor} </p>
+          <p className="card-text"> Genero: {gender} </p>
+          <p className="card-text"> Color de Pelo: {hairColor} </p>
+          <p className="card-text"> Color de Ojos: {eyeColor} </p>
           <div className="d-flex justify-content-between">
             <Link
-              to={"/character/"+id}
+              to={"/character/" + id}
               className="btn btn-outline border-primary text-primary"
             >
               Learn More!
             </Link>
-            <button className="btn btn-outline border-warning text-warning">
-              
+            <button
+              className="btn btn-outline border-warning text-warning"
+              onClick={()=>actions.addFavourites(name)}
+            >
               <i className="far fa-heart"> </i>
             </button>
           </div>

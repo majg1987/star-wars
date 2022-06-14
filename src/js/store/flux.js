@@ -7,19 +7,13 @@ const getState = ({
         store: {
             personajes: [],
             planetas: [],
-            vehiculos: []
+            vehiculos: [],
+            favoritos: [],
         },
         actions: {
-            // Use getActions to call a function within a fuction
-            exampleFunction: () => {
-                getActions().changeColor(0, "green");
-            },
 
             // Obtengo los datos de los personajes de la api
             datosPersonajes: () => {
-                /**
-                        	fetch().then().then(data => setStore({ "foo": data.bar }))
-                        */
                 fetch("https://swapi.dev/api/people")
                     .then((res) => res.json())
                     .then((data) => setStore({
@@ -28,6 +22,7 @@ const getState = ({
                     .catch((err) => console.error(err));
             },
 
+            // Obtengo los datos de los planetas de la api
             datosPlanetas: () => {
                 fetch("https://swapi.dev/api/planets")
                     .then((res) => res.json())
@@ -37,12 +32,36 @@ const getState = ({
                     .catch((err) => console.error(err));
             },
 
+            // Obtengo datos de vehiculos de la api
             datosVehiculos: () => {
                 fetch("https://swapi.dev/api/vehicles")
                     .then((res) => res.json())
-                    .then((data) =>setStore({vehiculos: data.results}))
+                    .then((data) => setStore({
+                        vehiculos: data.results
+                    }))
                     .catch((err) => console.error(err));
             },
+
+            // Agrego a la lista de favoritos
+            addFavourites: (favourite) => {
+                const store = getStore();
+                setStore({
+                    ...store,
+                    favoritos: store.favoritos.concat(favourite)
+                })
+                // console.log(favourite);
+            },
+
+            // Eliminar de la lista de favoritos
+            deleteFavourites: (element) => {
+                const store = getStore();
+                const eliminado = store.favoritos.filter((item, index) => {
+                    return element != item;
+                })
+                setStore({
+                    favoritos: eliminado
+                })
+            }
 
         },
     };
