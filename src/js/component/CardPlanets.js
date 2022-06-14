@@ -22,7 +22,7 @@ const CardPlanets = ({ name, population, terrain, id }) => {
               to={"/planet/" + id}
               className="btn btn-outline border-primary text-primary"
             >
-              Learn More!
+              Aprende Mas!
             </Link>
 
             <button

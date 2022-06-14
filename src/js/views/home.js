@@ -7,7 +7,7 @@ import "../../styles/home.css";
 
 export const Home = () => {
   const { store, actions } = useContext(Context);
-  
+
   return (
     <div className="container">
       <h2 className="text-danger mb-5"> Personajes </h2>
@@ -21,6 +21,7 @@ export const Home = () => {
                 hairColor={item.hair_color}
                 eyeColor={item.eye_color}
                 id={index}
+                img={store.imagenesPersonajes[index]?.url}
               />
             </li>
           ))}

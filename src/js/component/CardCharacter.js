@@ -2,14 +2,14 @@ import React, { useContext } from "react";
 import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
 
-const CardCharacter = ({ name, gender, hairColor, eyeColor, id }) => {
+const CardCharacter = ({ name, gender, hairColor, eyeColor, id, img }) => {
   const { store, actions } = useContext(Context);
 
   return (
     <>
       <div className="card me-5">
         <img
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTycN1y9R0MhB1LuhER8D7RFJVPUtf5jVW3KxdTGnanBhBysAs9ObtpaiZ5RYCmBDfdvok&usqp=CAU"
+          src={img}
           className="card-img-top"
           alt="..."
         />
@@ -23,7 +23,7 @@ const CardCharacter = ({ name, gender, hairColor, eyeColor, id }) => {
               to={"/character/" + id}
               className="btn btn-outline border-primary text-primary"
             >
-              Learn More!
+              Saber Mas!
             </Link>
             <button
               className="btn btn-outline border-warning text-warning"

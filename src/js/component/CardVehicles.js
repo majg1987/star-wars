@@ -24,7 +24,7 @@ const CardVehicles = ({ name, modelo, claseVehiculo, pasajeros, id }) => {
               to={"/vehicle/" + id}
               className="btn btn-outline border-primary text-primary"
             >
-              Learn More!
+              Saber Mas!
             </Link>
             <button
               className="btn btn-outline border-warning text-warning"
