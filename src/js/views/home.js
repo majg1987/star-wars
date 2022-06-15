@@ -10,7 +10,7 @@ export const Home = () => {
 
   return (
     <div className="container">
-      <h2 className="text-danger mb-5"> Personajes </h2>
+      <h2 className="text-warning mb-5"> Personajes </h2>
       <div className=" container  overflow-auto p-0 mb-4">
         <ul className="d-flex p-0">     
           {store.personajes.map((item, index) => (
@@ -27,7 +27,7 @@ export const Home = () => {
           ))}
         </ul>
       </div>
-      <h2 className="text-danger mb-5"> Planetas </h2>
+      <h2 className="text-warning mb-5"> Planetas </h2>
       <div className="container d-flex overflow-auto p-0 mb-4">
       {store.planetas.map((item, index) => (
             <li key={index}>
@@ -36,11 +36,12 @@ export const Home = () => {
                 population={item.population}
                 terrain={item.terrain}
                 id={index}
+                img = {store.imagenesPlanetas[index]?.url}
               />
             </li>
           ))}
       </div>
-      <h2 className="text-danger mb-5"> Vehiculos </h2>
+      <h2 className="text-warning mb-5"> Vehiculos </h2>
       <div className="container d-flex overflow-auto p-0">
       {store.vehiculos.map((item, index) => (
             <li key={index}>
@@ -50,6 +51,8 @@ export const Home = () => {
                 claseVehiculo={item.vehicle_class}
                 pasajeros={item.passengers}
                 id={index}
+                img = {store.imagenesVehiculos[index]?.url}
+
               />
             </li>
           ))}

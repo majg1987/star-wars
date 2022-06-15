@@ -7,34 +7,34 @@ export const Navbar = () => {
 
   return (
     <>
-      <nav className="navbar navbar-light bg-light mb-4">
+      <nav className="navbar navbar-light pt-3 mb-4">
         <div className="container">
           <Link to="/">
             <img
               className="titulo"
-              src="https://3.bp.blogspot.com/-ynpUop8xVZE/UGmHfbAp76I/AAAAAAAAAn8/ed1wBRPFI7U/w1200-h630-p-k-no-nu/star-wars-logo.jpg"
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Star_Wars_Logo.svg/640px-Star_Wars_Logo.svg.png"
             />
           </Link>
 
           <div className="dropdown">
             <button
-              className="btn btn-primary dropdown-toggle"
+              className="btn btn-warning text-white fs-bolder dropdown-toggle"
               type="button"
               id="dropdownMenuButton1"
               data-bs-toggle="dropdown"
               aria-expanded="false"
             >
               Favourites
-              <span className="bg-danger mx-2 px-2 rounded">
+              <span className="bg-success text-white mx-2 px-2 rounded">
                 {store.favoritos.length}
               </span>
             </button>
             <ul
-              className="dropdown-menu text-center text-primary"
+              className="dropdown-menu text-center bg-warning text-white"
               aria-labelledby="dropdownMenuButton1"
             >
               {store.favoritos.map((item, index) => (
-                <li key={index} className="d-flex justify-content-around mb-2">
+                <li key={index} className="d-flex justify-content-between mx-2 mb-2">
                   {item}
                   <button className="btn btn-danger text-white rounded px-1 py-0 " onClick={()=>actions.deleteFavourites(item)}>
                     <i className="far fa-trash-alt "></i>

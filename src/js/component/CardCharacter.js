@@ -7,29 +7,29 @@ const CardCharacter = ({ name, gender, hairColor, eyeColor, id, img }) => {
 
   return (
     <>
-      <div className="card me-5">
+      <div className="card me-5 border-warning border-3">
         <img
           src={img}
           className="card-img-top"
           alt="..."
         />
         <div className="card-body">
-          <h5 className="card-title"> {name} </h5>
-          <p className="card-text"> Genero: {gender} </p>
-          <p className="card-text"> Color de Pelo: {hairColor} </p>
-          <p className="card-text"> Color de Ojos: {eyeColor} </p>
+          <h5 className="card-title fw-bolder"> {name} </h5>
+          <p className="card-text"><span className="fw-bolder">Genero:</span>  {gender} </p>
+          <p className="card-text"><span className="fw-bolder">Color de Pelo:</span>  {hairColor} </p>
+          <p className="card-text"><span className="fw-bolder">Color de Ojos:</span>  {eyeColor} </p>
           <div className="d-flex justify-content-between">
             <Link
               to={"/character/" + id}
-              className="btn btn-outline border-primary text-primary"
+              className="btn btn-outline border-success border-3 text-success fw-bolder"
             >
               Saber Mas!
             </Link>
             <button
-              className="btn btn-outline border-warning text-warning"
-              onClick={()=>actions.addFavourites(name)}
+              className="btn btn-outline border-warning border-3 text-warning"
+              onClick={()=>actions.addFavourites(name, id, "personaje")}
             >
-              <i className="far fa-heart"> </i>
+              <i className={`${store.favoritoPersonaje[id] ? " fw-bolder" : " "} far fa-heart`}> </i>
             </button>
           </div>
         </div>

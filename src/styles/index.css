@@ -1,7 +1,11 @@
+body {
+    background-image: url("https://w0.peakpx.com/wallpaper/162/884/HD-wallpaper-stars-black.jpg");
+}
+
 .titulo {
-    height: 50px;
+    height: 70px;
 }
 
 .card {
-    min-width: 18rem;
+    min-width: 25rem;
 }

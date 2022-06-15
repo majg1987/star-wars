@@ -2,34 +2,32 @@ import React, { useContext } from "react";
 import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
 
-const CardPlanets = ({ name, population, terrain, id }) => {
-
-  const {actions} = useContext(Context);
+const CardPlanets = ({ name, population, terrain, id, img }) => {
+  const { store, actions } = useContext(Context);
   return (
     <>
-      <div className="card me-5">
-        <img
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTycN1y9R0MhB1LuhER8D7RFJVPUtf5jVW3KxdTGnanBhBysAs9ObtpaiZ5RYCmBDfdvok&usqp=CAU"
-          className="card-img-top"
-          alt="..."
-        />
+      <div className="card me-5 mb-3 border-warning border-3">
+        <img src={img} className="card-img-top" alt="..." />
         <div className="card-body">
-          <h5 className="card-title"> {name} </h5>
-          <p className="card-text"> Poblacion: {population}</p>
-          <p className="card-text"> Terreno: {terrain} </p>
+          <h5 className="card-title fw-bolder"> {name} </h5>
+          <p className="card-text">
+            <span className="fw-bolder"> Poblacion:</span> {population}{" "}
+          </p>
+          <p className="card-text">
+            <span className="fw-bolder"> Terreno:</span> {terrain}{" "}
+          </p>
           <div className="d-flex justify-content-between">
             <Link
               to={"/planet/" + id}
-              className="btn btn-outline border-primary text-primary"
+              className="btn btn-outline border-success border-3 text-success fw-bolder"
             >
-              Aprende Mas!
+              Saber Mas!
             </Link>
-
             <button
-              className="btn btn-outline border-warning text-warning"
-              onClick={() => actions.addFavourites(name)}
+              className="btn btn-outline border-warning border-3 text-warning"
+              onClick={() => actions.addFavourites(name, id, "planeta")}
             >
-              <i className="far fa-heart"> </i>
+              <i className={`${store.favoritoPlaneta[id] ? " fw-bolder" : " "} far fa-heart`}> </i>
             </button>
           </div>
         </div>
