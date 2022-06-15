@@ -33,7 +33,8 @@ export const Navbar = () => {
               className="dropdown-menu text-center bg-warning text-white"
               aria-labelledby="dropdownMenuButton1"
             >
-              {store.favoritos.map((item, index) => (
+              {store.favoritos.length < 1 ? <li>No hay elementos en favoritos</li> :
+              store.favoritos.map((item, index) => (
                 <li key={index} className="d-flex justify-content-between mx-2 mb-2">
                   {item}
                   <button className="btn btn-danger text-white rounded px-1 py-0 " onClick={()=>actions.deleteFavourites(item)}>
