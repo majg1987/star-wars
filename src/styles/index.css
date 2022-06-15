@@ -9,3 +9,7 @@ body {
 .card {
     min-width: 25rem;
 }
+
+.dropdown-menu {
+    width: 250px;
+}

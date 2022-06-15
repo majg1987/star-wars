@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import ScrollToTop from "./component/scrollToTop";
-
 import { Home } from "./views/home";
 import { Character } from "./views/character";
 import { Planet } from "./views/planet";
 import { Vehicle } from "./views/vehicle";
-import { Single } from "./views/single";
 import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar";
@@ -34,9 +32,6 @@ const Layout = () => {
             </Route>
             <Route exact path="/vehicle/:theid">
               <Vehicle />
-            </Route>
-            <Route exact path="/single/:theid">
-              <Single />
             </Route>
             <Route>
               <h1> Not found! </h1>
