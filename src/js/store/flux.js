@@ -283,7 +283,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       // Eliminar de la lista de favoritos
       deleteFavourites: (element) => {
         const store = getStore();
-        // Elimino relleno de icono de favoritos
+        // Elimino relleno de icono de favoritos comprobando los arrays y utilizando el index
         store.personajes.forEach((item, index)=>{
             if(item.name === element){
                 setStore(

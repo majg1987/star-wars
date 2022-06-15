@@ -6,11 +6,11 @@ import CardVehicles from "../component/CardVehicles.js";
 import "../../styles/home.css";
 
 export const Home = () => {
-  const { store, actions } = useContext(Context);
+  const { store } = useContext(Context);
 
   return (
     <div className="container">
-      <h2 className="text-warning mb-5"> Personajes </h2>
+      <h2 className="text-warning mb-4"> Personajes </h2>
       <div className=" container  overflow-auto p-0 mb-4">
         <ul className="d-flex p-0">     
           {store.personajes.map((item, index) => (
@@ -27,7 +27,7 @@ export const Home = () => {
           ))}
         </ul>
       </div>
-      <h2 className="text-warning mb-5"> Planetas </h2>
+      <h2 className="text-warning mb-4"> Planetas </h2>
       <div className="container d-flex overflow-auto p-0 mb-4">
       {store.planetas.map((item, index) => (
             <li key={index}>
@@ -41,7 +41,7 @@ export const Home = () => {
             </li>
           ))}
       </div>
-      <h2 className="text-warning mb-5"> Vehiculos </h2>
+      <h2 className="text-warning mb-4"> Vehiculos </h2>
       <div className="container d-flex overflow-auto p-0">
       {store.vehiculos.map((item, index) => (
             <li key={index}>
