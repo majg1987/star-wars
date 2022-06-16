@@ -13,6 +13,9 @@ const getState = ({ getStore, getActions, setStore }) => {
       // Espacio de memoria para datos de favoritos
       favoritos: [],
 
+      // Para comprobar si se repite en la lista de favoritos, si se repite no se introduce en lista
+      repetido: false,
+
       // Arrays para colorear corazon de favoritos de personajes, planetas y vehiculos
       favoritoPersonaje: [
         false,
@@ -52,7 +55,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       ],
 
       // Variable para quitar relleno de favoritos
-      indice : null,
+      indice: null,
 
       // Espacion de memoria para descripcion y url de imagenes de los personajes
       imagenesPersonajes: [
@@ -255,25 +258,27 @@ const getState = ({ getStore, getActions, setStore }) => {
 
       // Agrego a la lista de favoritos
       addFavourites: (favourite, indice, tipo) => {
-        const store = getStore();  
-        setStore({
-          ...store,
-          favoritos: store.favoritos.concat(favourite),
+        const store = getStore();
+        store.favoritos.forEach((item) => {
+          if (item === favourite) {
+            setStore({ repetido: true });
+          }
         });
+        if (!store.repetido) {
+          setStore({
+            ...store,
+            favoritos: store.favoritos.concat(favourite),
+          });
+          setStore({ repetido: false });
+        }
 
         // Cambio boton de favorito al pulsarlo rellenando corazon
         if (tipo === "personaje") {
-          setStore(
-            (store.favoritoPersonaje[indice] = true)
-          );
-        } else if( tipo === "planeta"){
-            setStore(
-                (store.favoritoPlaneta[indice] = true)
-              );
+          setStore((store.favoritoPersonaje[indice] = true));
+        } else if (tipo === "planeta") {
+          setStore((store.favoritoPlaneta[indice] = true));
         } else {
-            setStore(
-                (store.favoritoVehiculo[indice] = true)
-              );
+          setStore((store.favoritoVehiculo[indice] = true));
         }
 
         // console.log(store.favoritoPersonaje[indice]);
@@ -284,27 +289,21 @@ const getState = ({ getStore, getActions, setStore }) => {
       deleteFavourites: (element) => {
         const store = getStore();
         // Elimino relleno de icono de favoritos comprobando los arrays y utilizando el index
-        store.personajes.forEach((item, index)=>{
-            if(item.name === element){
-                setStore(
-                    (store.favoritoPersonaje[index] = false)
-                  );
-            }
-        })
-        store.planetas.forEach((item, index)=>{
-            if(item.name === element){
-                setStore(
-                    (store.favoritoPlaneta[index] = false)
-                  );
-            }
-        })
-        store.vehiculos.forEach((item, index)=>{
-            if(item.name === element){
-                setStore(
-                    (store.favoritoVehiculo[index] = false)
-                  );
-            }
-        })
+        store.personajes.forEach((item, index) => {
+          if (item.name === element) {
+            setStore((store.favoritoPersonaje[index] = false));
+          }
+        });
+        store.planetas.forEach((item, index) => {
+          if (item.name === element) {
+            setStore((store.favoritoPlaneta[index] = false));
+          }
+        });
+        store.vehiculos.forEach((item, index) => {
+          if (item.name === element) {
+            setStore((store.favoritoVehiculo[index] = false));
+          }
+        });
 
         // Elimino informacion de la lista de favoritos
         const eliminado = store.favoritos.filter((item) => {
