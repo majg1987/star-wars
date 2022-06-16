@@ -12,7 +12,7 @@ const DetallesCharacter = () => {
       <div className="row mb-5">
         <div className="col-12 col-lg-6 text-center">
           <img
-            className="imagen"
+            className="imagen border border-3 border-warning rounded"
             src={store.imagenesPersonajes[theid]?.url}
             alt="imagen 800x600"
           />
