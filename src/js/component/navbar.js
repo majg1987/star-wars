@@ -24,7 +24,7 @@ export const Navbar = () => {
               data-bs-toggle="dropdown"
               aria-expanded="false"
             >
-              Favourites
+              Favorites
               <span className="bg-success text-white mx-2 px-2 rounded">
                 {store.favoritos.length}
               </span>
